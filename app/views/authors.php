@@ -7,21 +7,40 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background-color: #f8f9fa;
+            background: linear-gradient(135deg, #1b5e20, #a5d6a7); /* dark green + light green gradient */
+            min-height: 100vh;
         }
         .search-form {
             position: sticky;
             top: 0;
-            background-color: #fff;
+            background-color: #e8f5e9; /* very light green */
             z-index: 1000;
             padding: 15px 0;
+            border-bottom: 2px solid #1b5e20;
         }
         .table thead {
-            background-color: #343a40;
+            background-color: #1b5e20; /* dark green */
             color: white;
         }
+        .table tbody tr:hover {
+            background-color: #c8e6c9; /* light green hover */
+        }
         .card {
-            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border: 1px solid #1b5e20;
+        }
+        .card-header {
+            background-color: #2e7d32; /* slightly lighter dark green */
+            color: #fff;
+            font-weight: bold;
+        }
+        .btn-primary {
+            background-color: #2e7d32;
+            border-color: #2e7d32;
+        }
+        .btn-primary:hover {
+            background-color: #1b5e20;
+            border-color: #1b5e20;
         }
     </style>
 </head>
@@ -30,7 +49,7 @@
 
     <div class="search-form row mb-3">
         <div class="col-md-6">
-            <h2>Students List</h2>
+            <h2 class="text-success">Students List</h2>
         </div>
         <div class="col-md-6 d-flex justify-content-end">
             <form action="<?= site_url('author'); ?>" method="get" class="d-flex w-100" style="max-width: 400px;">
@@ -42,7 +61,7 @@
     </div>
 
     <div class="card">
-        <div class="card-header bg-primary text-white">
+        <div class="card-header">
             Students List
         </div>
         <div class="card-body p-0">
