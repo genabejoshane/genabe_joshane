@@ -8,6 +8,25 @@
         {
             parent::__construct();
         }
+        // Create a new author
+        public function create($data) {
+            return $this->db->table($this->table)->insert($data);
+        }
+
+        // Get a single author by ID (edit)
+        public function edit($id) {
+            return $this->db->table($this->table)->where($this->primary_key, $id)->get();
+        }
+
+        // Update an author by ID
+        public function update_author($id, $data) {
+            return $this->db->table($this->table)->where($this->primary_key, $id)->update($data);
+        }
+
+        // Delete an author by ID
+        public function delete($id) {
+            return $this->db->table($this->table)->where($this->primary_key, $id)->delete();
+        }
         public function page($q, $records_per_page = null, $page = null) {
             if (is_null($page)) {
                 return $this->db->table('authors')->get_all();
