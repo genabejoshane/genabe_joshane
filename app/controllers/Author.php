@@ -33,5 +33,47 @@ class Author extends Controller {
         $data['page'] = $this->pagination->paginate();
         $this->call->view('authors', $data);
     }
+        // Create author (POST)
+        public function create() {
+            if ($this->io->post()) {
+                $data = [
+                    'first_name' => $this->io->post('first_name'),
+                    'last_name' => $this->io->post('last_name'),
+                    'birthdate' => $this->io->post('birthdate'),
+                    'email' => $this->io->post('email'),
+                    'added' => date('Y-m-d H:i:s')
+                ];
+                $this->author_model->create($data);
+                redirect('author');
+            } else {
+                $this->call->view('author_create');
+            }
+        }
+
+        // Edit author (GET)
+        public function edit($id) {
+            $data['author'] = $this->author_model->edit($id);
+            $this->call->view('author_edit', $data);
+        }
+
+        // Update author (POST)
+        public function update($id) {
+            if ($this->io->post()) {
+                $data = [
+                    'first_name' => $this->io->post('first_name'),
+                    'last_name' => $this->io->post('last_name'),
+                    'birthdate' => $this->io->post('birthdate'),
+                    'email' => $this->io->post('email')
+                ];
+                $this->author_model->update_author($id, $data);
+                redirect('author');
+            }
+        }
+
+        // Delete author (GET or POST)
+        public function delete($id) {
+            $this->author_model->delete($id);
+            redirect('author');
+        }
 }
 ?>
