@@ -47,6 +47,10 @@
 <body>
 <div class="container py-4">
 
+    <div class="mb-3 text-end">
+        <a href="<?= site_url('author/create'); ?>" class="btn btn-success">+ Add Author</a>
+    </div>
+
     <div class="search-form row mb-3">
         <div class="col-md-6">
             <h2 class="text-success">Students List</h2>
@@ -74,6 +78,7 @@
                         <th>Email</th>
                         <th>Birthdate</th>
                         <th>Added</th>
+                        <th>Actions</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -84,6 +89,12 @@
                             <td><?= $author['email']; ?></td>
                             <td><?= $author['birthdate']; ?></td>
                             <td><?= $author['added']; ?></td>
+                            <td>
+                                <a href="<?= site_url('author/edit/' . $author['id']); ?>" class="btn btn-sm btn-warning">Edit</a>
+                                <form action="<?= site_url('author/delete/' . $author['id']); ?>" method="post" style="display:inline;">
+                                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this author?');">Delete</button>
+                                </form>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                     </tbody>

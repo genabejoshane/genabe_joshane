@@ -3,6 +3,12 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 
 class Author extends Controller {
 
+    public function __construct()
+    {
+        parent::__construct();
+        $this->call->model('Author_model');
+    }
+
     public function all() 
     {
         
