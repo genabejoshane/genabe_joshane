@@ -7,6 +7,9 @@ class Author extends Controller {
     {
         parent::__construct();
         $this->call->model('Author_model');
+        if (!isset($_SESSION['user'])) {
+            redirect('auth/login');
+        }
     }
 
     public function all() 

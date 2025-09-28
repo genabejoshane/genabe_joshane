@@ -1,3 +1,8 @@
+$router->get('/auth/register', 'Auth::register');
+$router->post('/auth/register', 'Auth::register');
+$router->get('/auth/login', 'Auth::login');
+$router->post('/auth/login', 'Auth::login');
+$router->get('/auth/logout', 'Auth::logout');
 <?php
 defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 /**
@@ -45,3 +50,9 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 
 $router->get('/', 'Author::all');
 $router->get('/author', 'Author::all');
+
+$router->get('/author/create', 'Author::create');
+$router->post('/author/create', 'Author::create');
+$router->get('/author/edit/{id}', 'Author::edit');
+$router->post('/author/update/{id}', 'Author::update');
+$router->post('/author/delete/{id}', 'Author::delete');
