@@ -75,7 +75,7 @@ class Author extends Controller {
                     'email' => $this->io->post('email')
                 ];
                 $this->author_model->update_author($id, $data);
-                redirect('author');
+                redirect('author'); // After update, go back to student list
             }
         }
 
