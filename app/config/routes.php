@@ -52,8 +52,6 @@ $router->post('/author/create', 'Author::create');
 $router->get('/author/edit/{id}', 'Author::edit');
 $router->post('/author/update/{id}', 'Author::update');
 $router->post('/author/delete/{id}', 'Author::delete');
-$router->get('/auth/register', 'Auth::register');
-$router->post('/auth/register', 'Auth::register');
 $router->get('/auth/login', 'Auth::login');
 $router->post('/auth/login', 'Auth::login');
 $router->get('/auth/logout', 'Auth::logout');
