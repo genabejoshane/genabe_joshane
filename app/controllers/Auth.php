@@ -1,5 +1,4 @@
 <?php
-// Simple authentication controller
 class Auth extends Controller {
     public function __construct() {
         parent::__construct();
