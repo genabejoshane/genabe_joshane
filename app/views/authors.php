@@ -46,6 +46,10 @@
 </head>
 <body>
 <div class="container py-4">
+    <div class="mb-3 text-end">
+        <a href="<?= site_url('author/create'); ?>" class="btn btn-success">+ Add Author</a>
+        <a href="<?= site_url('auth/logout'); ?>" class="btn btn-secondary ms-2">Logout</a>
+    </div>
     <!-- DEBUG: Dump $all -->
     <pre><?php var_dump($all); ?></pre>
 
