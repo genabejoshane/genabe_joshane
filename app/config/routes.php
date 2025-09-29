@@ -45,3 +45,10 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 
 $router->get('/', 'Author::all');
 $router->get('/author', 'Author::all');
+
+$router->get('/user/index', 'UserController::index');
+$router->get('/user/create', 'UserController::create');
+$router->post('/user/create', 'UserController::create');
+$router->get('/user/update/{id}', 'UserController::update');
+$router->post('/user/update/{id}', 'UserController::update');
+$router->get('/user/delete/{id}', 'UserController::delete');
