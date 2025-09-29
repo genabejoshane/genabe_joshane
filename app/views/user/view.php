@@ -131,18 +131,24 @@
       <th>Action</th>
     </tr>
 
-    <?php foreach ($users as $user): ?>
+    <?php if (!empty($users)): ?>
+      <?php foreach ($users as $user): ?>
+        <tr>
+          <td><?= $user['id']; ?></td>
+          <td><?= $user['username']; ?></td>
+          <td><?= $user['email']; ?></td>
+          <td>
+            <a href="<?= site_url('user/update/'.$user['id']); ?>" class="action-btn edit-btn">Edit</a>
+            <a href="<?= site_url('user/delete/'.$user['id']); ?>" class="action-btn delete-btn"
+               onclick="return confirm('Are you sure you want to delete this user?');">Delete</a>
+          </td>
+        </tr>
+      <?php endforeach; ?>
+    <?php else: ?>
       <tr>
-        <td><?= $user['id']; ?></td>
-        <td><?= $user['username']; ?></td>
-        <td><?= $user['email']; ?></td>
-        <td>
-          <a href="<?= site_url('user/update/'.$user['id']); ?>" class="action-btn edit-btn">Edit</a>
-          <a href="<?= site_url('user/delete/'.$user['id']); ?>" class="action-btn delete-btn"
-             onclick="return confirm('Are you sure you want to delete this user?');">Delete</a>
-        </td>
+        <td colspan="4" style="text-align:center; color:#888; font-size:18px; padding:40px 0;">No users found.</td>
       </tr>
-    <?php endforeach; ?>
+    <?php endif; ?>
 
   </table>
 
