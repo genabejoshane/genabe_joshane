@@ -10,7 +10,14 @@ class UserModel extends Model {
     public function getPaginated($page, $perPage)
     {
         $offset = ($page - 1) * $perPage;
-        return $this->db->table($this->table)->limit($perPage)->offset($offset)->get();
+        $result = $this->db->table($this->table)->limit($perPage)->offset($offset)->get();
+        if (is_array($result)) {
+            return $result;
+        } elseif (is_object($result)) {
+            return [$result];
+        } else {
+            return [];
+        }
     }
 
     public function countAll()
