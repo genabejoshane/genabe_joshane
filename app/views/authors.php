@@ -33,6 +33,7 @@ if (isset($all)) {
         }
         .card {
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+                <title>Authors List</title>
             border: 1px solid #1b5e20;
         }
         .card-header {
@@ -85,7 +86,7 @@ if (isset($all)) {
                     <thead>
                     <tr>
                         <th>Firstname</th>
-                        <th>Lastname</th>
+                        <form action="<?= site_url('author'); ?>" method="get" class="d-flex w-100" style="max-width: 400px;">
                         <th>Email</th>
                         <th>Birthdate</th>
                         <th>Added</th>

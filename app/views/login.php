@@ -12,7 +12,7 @@
     <?php if (isset($error)): ?>
         <div class="alert alert-danger"><?= $error; ?></div>
     <?php endif; ?>
-    <form action="<?= site_url('authors'); ?>" method="post" class="card p-4" style="max-width:400px;margin:auto;">
+        <form action="<?= site_url('author'); ?>" method="post" class="card p-4" style="max-width:400px;margin:auto;">
         <div class="mb-3">
             <label for="username" class="form-label">Username</label>
             <input type="text" class="form-control" id="username" name="username" required>
