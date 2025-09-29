@@ -84,21 +84,25 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <?php foreach ($all ?? [] as $author): ?>
-                        <tr>
-                            <td><?= $author['first_name']; ?></td>
-                            <td><?= $author['last_name']; ?></td>
-                            <td><?= $author['email']; ?></td>
-                            <td><?= $author['birthdate']; ?></td>
-                            <td><?= $author['added']; ?></td>
-                            <td>
-                                <a href="<?= site_url('author/edit/' . $author['id']); ?>" class="btn btn-sm btn-warning">Edit</a>
-                                <form action="<?= site_url('author/delete/' . $author['id']); ?>" method="post" style="display:inline;">
-                                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this author?');">Delete</button>
-                                </form>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
+                    <?php if (!empty($all)): ?>
+                        <?php foreach ($all as $author): ?>
+                            <tr>
+                                <td><?= $author['first_name']; ?></td>
+                                <td><?= $author['last_name']; ?></td>
+                                <td><?= $author['email']; ?></td>
+                                <td><?= $author['birthdate']; ?></td>
+                                <td><?= $author['added']; ?></td>
+                                <td>
+                                    <a href="<?= site_url('author/edit/' . $author['id']); ?>" class="btn btn-sm btn-warning">Edit</a>
+                                    <form action="<?= site_url('author/delete/' . $author['id']); ?>" method="post" style="display:inline;">
+                                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this author?');">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <tr><td colspan="6" class="text-center">No student records found.</td></tr>
+                    <?php endif; ?>
                     </tbody>
                 </table>
             </div>
