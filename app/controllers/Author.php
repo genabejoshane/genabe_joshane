@@ -27,9 +27,10 @@ class Author extends Controller {
 
         $records_per_page = 10;
 
-        $all = $this->author_model->page($q, $records_per_page, $page);
-        $data['all'] = $all['records'];
-        $total_rows = $all['total_rows'];
+    $all = $this->author_model->page($q, $records_per_page, $page);
+    echo '<pre>DEBUG: '; var_dump($all); echo '</pre>';
+    $data['all'] = $all['records'];
+    $total_rows = $all['total_rows'];
         $this->pagination->set_options([
             'first_link'     => '⏮ First',
             'last_link'      => 'Last ⏭',
