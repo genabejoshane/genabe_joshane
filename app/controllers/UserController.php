@@ -14,8 +14,20 @@ class UserController extends Controller {
 
     public function index()
     {
-        $data['users'] = $this->UserModel->all();
-        $this->call->view('user/view', $data);    
+           $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+           $limit = 10; // Number of users per page
+           $offset = ($page - 1) * $limit;
+
+           $data['users'] = $this->UserModel->getPaginated($limit, $offset);
+           $total_users = $this->UserModel->db->table($this->UserModel->table)->count();
+
+
+        // Load Pagination library
+        $pagination = new \Pagination();
+        $pagination->initialize($total_users, $limit, $page, 'user', 5);
+        $data['pagination'] = $pagination->paginate();
+
+           $this->call->view('user/view', $data);
     }
     public function create()
     {

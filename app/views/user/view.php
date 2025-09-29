@@ -143,6 +143,13 @@
         </td>
       </tr>
     <?php endforeach; ?>
+
   </table>
+
+  <!-- Pagination Navigation -->
+  <div style="width: 85%; margin: 30px auto 0 auto; text-align: center;">
+    <?= isset($pagination) ? $pagination : '' ?>
+  </div>
+
 </body>
 </html>

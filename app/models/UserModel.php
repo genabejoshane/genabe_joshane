@@ -14,4 +14,12 @@ class UserModel extends Model {
     {
         parent::__construct();
     }
+
+        // Fetch users with pagination
+        public function getPaginated($limit, $offset)
+        {
+            return $this->db->table($this->table)
+                ->limit($limit, $offset)
+                ->getAll();
+        }
 }
