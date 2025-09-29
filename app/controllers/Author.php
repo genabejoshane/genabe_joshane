@@ -25,6 +25,12 @@ class Author extends Controller {
             $q = trim($this->io->get('q'));
          }
 
+        if ($_GET['page'] == 'author') {
+        include('author.php');
+        }
+
+        
+
         $records_per_page = 10;
 
     $all = $this->author_model->page($q, $records_per_page, $page);
