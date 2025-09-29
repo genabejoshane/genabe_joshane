@@ -9,7 +9,7 @@ class Auth extends Controller {
         if ($this->io->post()) {
             $username = $this->io->post('username');
             $password = $this->io->post('password');
-            if ($username === 'admin' && $password === 'admin23') {
+            if ($username === 'admin' && $password === 'admin123') {
                 $_SESSION['user'] = $username;
                 redirect('author');
             } else {
