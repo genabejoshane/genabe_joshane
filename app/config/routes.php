@@ -44,7 +44,13 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 |
 */
 
-$router->get('/', 'Auth::login');
+$router->get('/', function() {
+	if (isset($_SESSION['user'])) {
+		redirect('author');
+	} else {
+		redirect('auth/login');
+	}
+});
 $router->get('/author', 'Author::all');
 
 $router->get('/author/create', 'Author::create');
