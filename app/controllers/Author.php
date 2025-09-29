@@ -25,9 +25,6 @@ class Author extends Controller {
             $q = trim($this->io->get('q'));
          }
 
-        if ($_GET['page'] == 'author') {
-        include('author.php');
-        }
 
         
 
