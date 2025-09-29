@@ -20,6 +20,6 @@ class UserModel extends Model {
         {
             return $this->db->table($this->table)
                 ->limit($limit, $offset)
-                ->getAll();
+                ->get_all();
         }
 }
