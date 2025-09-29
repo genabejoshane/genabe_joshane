@@ -1,0 +1,11 @@
+Welcome to LavaLust
+====================
+
+.. toctree::
+   :maxdepth: 2
+
+   welcome
+   license
+   changelog
+    
+
