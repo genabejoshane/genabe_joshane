@@ -22,8 +22,9 @@ class UserController extends Controller {
            $total_users = $this->UserModel->count();
 
 
-        // Load Pagination library
-        $pagination = new \Pagination();
+    // Load Pagination library
+    $this->call->library('pagination');
+    $pagination = new \Pagination();
         $pagination->initialize($total_users, $limit, $page, 'user', 5);
         $data['pagination'] = $pagination->paginate();
 
