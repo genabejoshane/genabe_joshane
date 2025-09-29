@@ -13,6 +13,7 @@ class UserModel extends Model {
     public function __construct()
     {
         parent::__construct();
+        $this->db = database_instance();
     }
 
         // Fetch users with pagination
