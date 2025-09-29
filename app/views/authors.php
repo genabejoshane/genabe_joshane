@@ -1,5 +1,8 @@
 <?php
 // Error reporting is enabled in config, no need to repeat here
+if (isset($all)) {
+    echo '<pre>DATA TO VIEW: ' . print_r($all, true) . '</pre>';
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

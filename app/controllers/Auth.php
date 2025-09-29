@@ -14,11 +14,9 @@ class Auth extends Controller {
                 redirect('author');
             } else {
                 $data['error'] = 'Invalid credentials';
-                echo '<pre>DEBUG: Auth login reached, invalid credentials</pre>';
                 $this->call->view('login', $data);
             }
         } else {
-            echo '<pre>DEBUG: Auth login reached, GET request</pre>';
             $this->call->view('login');
         }
     }
