@@ -84,7 +84,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <?php foreach (html_escape($all) as $author): ?>
+                    <?php foreach ($all ?? [] as $author): ?>
                         <tr>
                             <td><?= $author['first_name']; ?></td>
                             <td><?= $author['last_name']; ?></td>
