@@ -1,7 +1,5 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-echo '<pre>SESSION: ' . print_r($_SESSION, true) . '</pre>';
+// Error reporting is enabled in config, no need to repeat here
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -55,8 +53,7 @@ echo '<pre>SESSION: ' . print_r($_SESSION, true) . '</pre>';
         <a href="<?= site_url('author/create'); ?>" class="btn btn-success">+ Add Author</a>
         <a href="<?= site_url('auth/logout'); ?>" class="btn btn-secondary ms-2">Logout</a>
     </div>
-    <!-- DEBUG: Dump $all -->
-    <pre><?php var_dump($all); ?></pre>
+
 
     <div class="mb-3 text-end">
         <a href="<?= site_url('author/create'); ?>" class="btn btn-success">+ Add Author</a>
@@ -93,7 +90,7 @@ echo '<pre>SESSION: ' . print_r($_SESSION, true) . '</pre>';
                     </tr>
                     </thead>
                     <tbody>
-                    <?php if (!empty($all)): ?>
+                    <?php if (isset($all) && is_array($all) && count($all) > 0): ?>
                         <?php foreach ($all as $author): ?>
                             <tr>
                                 <td><?= $author['first_name']; ?></td>
@@ -110,7 +107,7 @@ echo '<pre>SESSION: ' . print_r($_SESSION, true) . '</pre>';
                             </tr>
                         <?php endforeach; ?>
                     <?php else: ?>
-                        <tr><td colspan="6" class="text-center">No student records found.</td></tr>
+                        <tr><td colspan="6" class="text-center text-danger">No student records found or there was a problem loading the data.</td></tr>
                     <?php endif; ?>
                     </tbody>
                 </table>
