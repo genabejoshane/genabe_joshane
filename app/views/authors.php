@@ -46,6 +46,8 @@
 </head>
 <body>
 <div class="container py-4">
+    <!-- DEBUG: Dump $all -->
+    <pre><?php var_dump($all); ?></pre>
 
     <div class="mb-3 text-end">
         <a href="<?= site_url('author/create'); ?>" class="btn btn-success">+ Add Author</a>
