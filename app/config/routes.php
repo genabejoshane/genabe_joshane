@@ -1,5 +1,4 @@
-
- <?php
+<?php
 defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 /**
  * ------------------------------------------------------------------
@@ -44,14 +43,8 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 |
 */
 
-$router->get('/', 'Auth::login');
-$router->get('/author', 'Author::all');
-
-$router->get('/author/create', 'Author::create');
-$router->post('/author/create', 'Author::create');
-$router->get('/author/edit/{id}', 'Author::edit');
-$router->post('/author/update/{id}', 'Author::update');
-$router->post('/author/delete/{id}', 'Author::delete');
-$router->get('/auth/login', 'Auth::login');
-$router->post('/auth/login', 'Auth::login');
-$router->get('/auth/logout', 'Auth::logout');
+$router->get('/', 'UserController::index');
+$router->match('/user/create', 'UserController::create', ['GET', 'POST']);
+$router->match('/user/update/{id}', 'UserController::update', ['GET', 'POST']);
+$router->get('/user/delete/{id}', 'UserController::delete');
+ 
