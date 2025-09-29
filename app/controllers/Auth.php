@@ -24,6 +24,6 @@ class Auth extends Controller {
 
     public function logout() {
         session_destroy();
-        redirect('auth/login');
+        redirect('author.php');
     }
 }
