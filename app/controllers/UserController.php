@@ -1,31 +1,26 @@
 <?php
-// UserController for create, edit, update, delete
-
+// Prevent direct access
 defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 
 class UserController extends Controller {
-    public function __construct()
-    {
+    public function __construct() {
         parent::__construct();
-        require_once __DIR__ . '/../../app/models/UserModel.php';
-        $this->UserModel = new UserModel();
+    require_once __DIR__ . '/../../models/UserModel.php';
+    require_once __DIR__ . '/../../scheme/helpers/pagination_helper.php';
+    $this->UserModel = new UserModel();
     }
 
-    // List users with pagination
-    public function index()
-    {
-    require_once __DIR__ . '/../../scheme/helpers/pagination_helper.php';
+    public function index() {
+    // pagination_helper already required in constructor
         $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
         $perPage = 10;
         $totalUsers = $this->UserModel->countAll();
         $data['users'] = $this->UserModel->getPaginated($page, $perPage);
-        $data['pagination'] = paginate($totalUsers, $perPage, $page, '/user/view?page=');
+    $data['pagination'] = function_exists('paginate') ? paginate($totalUsers, $perPage, $page, '/user/view?page=') : '';
         $this->call->view('user/view', $data);
     }
 
-    // Create user
-    public function create()
-    {
+    public function create() {
         if($this->io->method() == 'post') {
             $username = $this->io->post('username');
             $email = $this->io->post('email');
@@ -40,19 +35,7 @@ class UserController extends Controller {
         }
     }
 
-    // Edit user form
-    public function edit($id)
-    {
-        $user = $this->UserModel->find($id);
-        if ($user === null) {
-            redirect('/user/view');
-        }
-        $this->call->view('user/update', ['user' => $user]);
-    }
-
-    // Update user
-    public function update($id)
-    {
+    public function update($id) {
         if($this->io->method() == 'post') {
             $username = $this->io->post('username');
             $email = $this->io->post('email');
@@ -63,18 +46,18 @@ class UserController extends Controller {
             $this->UserModel->update($id, $data);
             redirect('/user/view');
         } else {
-            $user = $this->UserModel->find($id);
-            if ($user === null) {
-                redirect('/user/view');
-            }
-            $this->call->view('user/update', ['user' => $user]);
+            $data['user'] = $this->UserModel->get($id);
+            $this->call->view('user/update', $data);
         }
     }
 
-    // Delete user
-    public function delete($id)
-    {
-        $this->UserModel->delete($id);
-        redirect('/user/view');
+    public function delete($id) {
+        if($this->io->method() == 'post') {
+            $this->UserModel->delete($id);
+            redirect('/user/view');
+        } else {
+            $data['user'] = $this->UserModel->get($id);
+            $this->call->view('user/delete', $data);
+        }
     }
 }
