@@ -11,6 +11,7 @@ class Auth extends Controller {
             $password = $this->io->post('password');
             if ($username === 'admin' && $password === 'admin123') {
                 $_SESSION['user'] = $username;
+                // Redirect to /author (singular)
                 redirect('author');
             } else {
                 $data['error'] = 'Invalid credentials';
