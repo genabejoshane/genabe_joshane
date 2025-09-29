@@ -19,7 +19,7 @@ class UserController extends Controller {
            $offset = ($page - 1) * $limit;
 
            $data['users'] = $this->UserModel->getPaginated($limit, $offset);
-           $total_users = $this->UserModel->db->table($this->UserModel->table)->count();
+           $total_users = $this->UserModel->count();
 
 
         // Load Pagination library
