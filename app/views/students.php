@@ -55,21 +55,32 @@
                         <th>Email</th>
                         <th>Birthdate</th>
                         <th>Added</th>
+                           <th>Actions</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <?php foreach (html_escape($all) as $author): ?>
-                        <tr>
-                            <td><?= $author['first_name']; ?></td>
-                            <td><?= $author['last_name']; ?></td>
-                            <td><?= $author['email']; ?></td>
-                            <td><?= $author['birthdate']; ?></td>
-                            <td><?= $author['added']; ?></td>
-                        </tr>
-                    <?php endforeach; ?>
+                        <?php foreach (html_escape($all) as $author): ?>
+                            <tr>
+                                <td><?= $author['first_name']; ?></td>
+                                <td><?= $author['last_name']; ?></td>
+                                <td><?= $author['email']; ?></td>
+                                <td><?= $author['birthdate']; ?></td>
+                                <td><?= $author['added']; ?></td>
+                                <td>
+                                    <div class="d-flex gap-2">
+                                        <a href="<?= site_url('student/edit/'.$author['id']); ?>" class="btn btn-info btn-sm" style="background: #00fff7; color: #222; border: none; box-shadow: 0 0 8px #00fff7;">&#9998; Edit</a>
+                                        <a href="<?= site_url('student/delete/'.$author['id']); ?>" class="btn btn-danger btn-sm" style="background: #00fff7; color: #222; border: none; box-shadow: 0 0 8px #00fff7;">&#128465; Delete</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>
+
+                <div class="mb-3">
+                    <a href="<?= site_url('student/create'); ?>" class="btn btn-success" style="background: #00fff7; color: #222; border: none; box-shadow: 0 0 8px #00fff7;">&#43; Create Student</a>
+                </div>
         </div>
         <div class="card-footer text-end">
             <?= $page; ?>

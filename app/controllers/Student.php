@@ -33,5 +33,45 @@ class Student extends Controller {
         $data['page'] = $this->pagination->paginate();
         $this->call->view('students', $data);
     }
+
+        public function create()
+        {
+            if ($this->io->method() === 'post') {
+                $data = [
+                    'first_name' => $this->io->post('first_name'),
+                    'last_name' => $this->io->post('last_name'),
+                    'email' => $this->io->post('email'),
+                    'birthdate' => $this->io->post('birthdate'),
+                ];
+                $this->Student_model->insert($data);
+                redirect(site_url('student/all'));
+            }
+            $this->call->view('student_create');
+        }
+
+        public function edit($id)
+        {
+            $student = $this->Student_model->find($id);
+            if (!$student) {
+                show_404();
+            }
+            if ($this->io->method() === 'post') {
+                $data = [
+                    'first_name' => $this->io->post('first_name'),
+                    'last_name' => $this->io->post('last_name'),
+                    'email' => $this->io->post('email'),
+                    'birthdate' => $this->io->post('birthdate'),
+                ];
+                $this->Student_model->update($id, $data);
+                redirect(site_url('student/all'));
+            }
+            $this->call->view('student_edit', ['student' => $student]);
+        }
+
+        public function delete($id)
+        {
+            $this->Student_model->delete($id);
+            redirect(site_url('student/all'));
+        }
 }
 ?>
