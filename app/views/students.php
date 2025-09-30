@@ -69,7 +69,7 @@
                                 <td>
                                     <div class="d-flex gap-2">
                                         <a href="<?= site_url('student/edit/'.$author['id']); ?>" class="btn btn-info btn-sm" style="background: #00fff7; color: #222; border: none; box-shadow: 0 0 8px #00fff7;">&#9998; Edit</a>
-                                        <a href="<?= site_url('student/delete/'.$author['id']); ?>" class="btn btn-danger btn-sm" style="background: #00fff7; color: #222; border: none; box-shadow: 0 0 8px #00fff7;">&#128465; Delete</a>
+                                            <a href="<?= site_url('student/delete/'.$author['id']); ?>" class="btn btn-danger btn-sm" style="background: #00fff7; color: #222; border: none; box-shadow: 0 0 8px #00fff7;" onclick="return confirm('Are you sure you want to delete this user?');">&#128465; Delete</a>
                                     </div>
                                 </td>
                             </tr>
