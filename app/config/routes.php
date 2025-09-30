@@ -44,4 +44,4 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 */
 
 $router->get('/', 'Student::all');
-$router->get('/student', 'Student::all');
+$router->get('/author', 'Student::all');
