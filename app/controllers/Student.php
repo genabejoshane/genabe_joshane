@@ -43,7 +43,7 @@ class Student extends Controller {
                     'email' => $this->io->post('email'),
                     'birthdate' => $this->io->post('birthdate'),
                 ];
-                $this->Student_model->insert($data);
+                $this->Student_model->create($data);
                 redirect(site_url('student/all'));
             }
             $this->call->view('student_create');
@@ -51,7 +51,7 @@ class Student extends Controller {
 
         public function edit($id)
         {
-            $student = $this->Student_model->find($id);
+        $student = $this->Student_model->get($id);
             if (!$student) {
                 show_404();
             }
