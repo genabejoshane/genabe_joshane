@@ -32,12 +32,13 @@
         <div class="col-md-6">
             <h2>Students List</h2>
         </div>
-        <div class="col-md-6 d-flex justify-content-end">
+        <div class="col-md-6 d-flex justify-content-end align-items-start gap-2">
             <form action="<?= site_url('author'); ?>" method="get" class="d-flex w-100" style="max-width: 400px;">
                 <?php $q = isset($_GET['q']) ? $_GET['q'] : ''; ?>
                 <input class="form-control me-2" name="q" type="text" placeholder="Search..." value="<?= html_escape($q); ?>">
                 <button type="submit" class="btn btn-primary">Search</button>
             </form>
+            <a href="<?= site_url('/logout'); ?>" class="btn btn-outline-secondary">Logout</a>
         </div>
     </div>
 

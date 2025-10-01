@@ -3,6 +3,13 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 
 class Student extends Controller {
 
+    public function before_action()
+    {
+        if (!$this->session->userdata('auth_logged_in')) {
+            redirect(site_url('/'));
+        }
+    }
+
     public function all() 
     {
         
