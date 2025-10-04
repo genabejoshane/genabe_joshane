@@ -5,7 +5,6 @@ class Student extends Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->library('session');
         $this->check_auth();
     }
 
