@@ -13,8 +13,8 @@ try {
     $pdo = new PDO("mysql:host=$host;port=$port;dbname=$database;charset=utf8mb4", $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
-    // Create users table
-    $sql = "CREATE TABLE IF NOT EXISTS `users` (
+    // Create user table
+    $sql = "CREATE TABLE IF NOT EXISTS `user` (
         `id` int(11) NOT NULL AUTO_INCREMENT,
         `username` varchar(50) NOT NULL UNIQUE,
         `email` varchar(100) NOT NULL UNIQUE,
@@ -28,7 +28,7 @@ try {
     echo "Users table created successfully!\n";
     
     // Check if admin user already exists
-    $checkSql = "SELECT COUNT(*) FROM users WHERE username = 'admin'";
+    $checkSql = "SELECT COUNT(*) FROM user WHERE username = 'admin'";
     $stmt = $pdo->prepare($checkSql);
     $stmt->execute();
     $count = $stmt->fetchColumn();

@@ -1,8 +1,5 @@
--- Step 1: Drop the existing users table if it exists
-DROP TABLE IF EXISTS `users`;
-
--- Step 2: Create the users table with correct structure
-CREATE TABLE `users` (
+-- Step 1: Create the user table with correct structure
+CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(50) NOT NULL UNIQUE,
   `email` varchar(100) NOT NULL UNIQUE,
@@ -12,7 +9,7 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Step 3: Insert the default admin user
+-- Step 2: Insert the default admin user
 -- Username: admin, Password: admin123 (properly hashed)
-INSERT INTO `users` (`username`, `email`, `password`, `created_at`, `updated_at`) VALUES 
+INSERT INTO `user` (`username`, `email`, `password`, `created_at`, `updated_at`) VALUES 
 ('admin', 'admin@example.com', 'admin123', NOW(), NOW());

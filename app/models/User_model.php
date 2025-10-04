@@ -5,7 +5,7 @@ class User_model extends Model {
     
     public function __construct() {
         parent::__construct();
-        $this->table = 'users';
+        $this->table = 'user';
     }
 
     public function create($data) {
