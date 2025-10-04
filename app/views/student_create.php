@@ -7,7 +7,10 @@
 </head>
 <body>
 <div class="container py-4">
-    <h2>Create Student</h2>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2>Create Student</h2>
+        <a href="<?= site_url('auth/logout'); ?>" class="btn btn-danger btn-sm">Logout</a>
+    </div>
     <form method="post" action="">
         <div class="mb-3">
             <label for="first_name" class="form-label">First Name</label>

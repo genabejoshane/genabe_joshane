@@ -3,6 +3,18 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 
 class Student extends Controller {
 
+    public function __construct() {
+        parent::__construct();
+        $this->load->library('session');
+        $this->check_auth();
+    }
+
+    private function check_auth() {
+        if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
+            redirect(site_url('auth/login'));
+        }
+    }
+
     public function all() 
     {
         
