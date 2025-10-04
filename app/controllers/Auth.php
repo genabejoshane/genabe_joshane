@@ -3,8 +3,11 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 
 class Auth extends Controller {
     
+    private $User_model;
+    
     public function __construct() {
         parent::__construct();
+        $this->User_model = new User_model();
     }
 
     public function login() {
