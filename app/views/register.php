@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-color: #e8f5e8;
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -24,7 +24,7 @@
             max-width: 450px;
         }
         .register-title {
-            color: #ff6b35;
+            color: #2d5a2d;
             font-weight: bold;
             font-size: 2rem;
             text-align: center;
@@ -42,8 +42,8 @@
             transition: all 0.3s ease;
         }
         .form-control:focus {
-            border-color: #ff6b35;
-            box-shadow: 0 0 0 0.2rem rgba(255, 107, 53, 0.25);
+            border-color: #2d5a2d;
+            box-shadow: 0 0 0 0.2rem rgba(45, 90, 45, 0.25);
         }
         .input-icon {
             position: absolute;
@@ -54,7 +54,7 @@
             font-size: 1.1rem;
         }
         .btn-register {
-            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            background-color: #2d5a2d;
             border: none;
             border-radius: 10px;
             padding: 12px;
@@ -63,11 +63,12 @@
             color: white;
             width: 100%;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+            box-shadow: 0 4px 15px rgba(45, 90, 45, 0.3);
         }
         .btn-register:hover {
+            background-color: #1e3f1e;
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+            box-shadow: 0 6px 20px rgba(45, 90, 45, 0.4);
             color: white;
         }
         .login-link {
@@ -76,11 +77,12 @@
             color: #6c757d;
         }
         .login-link a {
-            color: #ff6b35;
+            color: #2d5a2d;
             text-decoration: none;
             font-weight: 600;
         }
         .login-link a:hover {
+            color: #1e3f1e;
             text-decoration: underline;
         }
         .alert {
