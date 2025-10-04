@@ -5,8 +5,6 @@ class Auth extends Controller {
     
     public function __construct() {
         parent::__construct();
-        $this->load->model('User_model');
-        $this->load->library('session');
     }
 
     public function login() {
