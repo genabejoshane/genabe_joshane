@@ -1,6 +1,8 @@
 <?php
 defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 
+require_once APPPATH . 'models/User_model.php';
+
 class Auth extends Controller {
     
     private $User_model;
