@@ -128,10 +128,6 @@
                 <label for="email" class="form-label">Email</label>
                 <input type="email" class="form-control" id="email" name="email" value="<?= html_escape($student['email']); ?>" required>
             </div>
-            <div class="mb-4">
-                <label for="birthdate" class="form-label">Birthdate</label>
-                <input type="date" class="form-control" id="birthdate" name="birthdate" value="<?= html_escape($student['birthdate']); ?>" required>
-            </div>
             <div class="d-flex gap-3">
                 <button type="submit" class="btn btn-update">Update User</button>
                 <a href="<?= site_url('author'); ?>" class="btn btn-cancel">Cancel</a>
