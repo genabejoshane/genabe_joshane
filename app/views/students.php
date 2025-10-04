@@ -29,15 +29,18 @@
 <div class="container py-4">
 
     <div class="search-form row mb-3">
-        <div class="col-md-6">
+        <div class="col-md-4">
             <h2>Students List</h2>
         </div>
-        <div class="col-md-6 d-flex justify-content-end">
+        <div class="col-md-4 d-flex justify-content-center">
             <form action="<?= site_url('author'); ?>" method="get" class="d-flex w-100" style="max-width: 400px;">
                 <?php $q = isset($_GET['q']) ? $_GET['q'] : ''; ?>
                 <input class="form-control me-2" name="q" type="text" placeholder="Search..." value="<?= html_escape($q); ?>">
                 <button type="submit" class="btn btn-primary">Search</button>
             </form>
+        </div>
+        <div class="col-md-4 d-flex justify-content-end">
+            <a href="<?= site_url('student/create'); ?>" class="btn btn-success" style="background: #00fff7; color: #222; border: none; box-shadow: 0 0 8px #00fff7;">&#43; Create Student</a>
         </div>
     </div>
 
@@ -78,9 +81,6 @@
                 </table>
             </div>
 
-                <div class="mb-3">
-                    <a href="<?= site_url('student/create'); ?>" class="btn btn-success" style="background: #00fff7; color: #222; border: none; box-shadow: 0 0 8px #00fff7;">&#43; Create Student</a>
-                </div>
         </div>
         <div class="card-footer text-end">
             <?= $page; ?>
