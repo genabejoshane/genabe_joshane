@@ -3,7 +3,7 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 
 class User_model extends Model {
 
-    protected $table = 'users';
+    protected $table = 'user';
     protected $primary_key = 'id';
 
     public function __construct()
