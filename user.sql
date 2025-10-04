@@ -9,7 +9,7 @@ CREATE TABLE `user` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Step 2: Insert the default admin user
--- Username: admin, Password: admin123 (properly hashed)
+-- Step 2: Insert the default admin user with properly hashed password
+-- Username: admin, Password: admin123
 INSERT INTO `user` (`username`, `email`, `password`, `created_at`, `updated_at`) VALUES 
-('admin', 'admin@example.com', 'admin123', NOW(), NOW());
+('admin', 'admin@example.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', NOW(), NOW());

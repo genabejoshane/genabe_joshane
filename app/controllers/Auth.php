@@ -25,7 +25,14 @@ class Auth extends Controller {
 
             $user = $this->User_model->get_by_username($username);
             
-            if ($user && $this->User_model->verify_password($password, $user['password'])) {
+            // Debug: Check if user exists and what we got
+            if (!$user) {
+                $_SESSION['error'] = 'User not found.';
+                redirect(site_url('auth/login'));
+                return;
+            }
+            
+            if ($this->User_model->verify_password($password, $user['password'])) {
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['username'] = $user['username'];
                 $_SESSION['email'] = $user['email'];
